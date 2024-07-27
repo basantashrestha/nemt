@@ -13,3 +13,4 @@ Post
 to check frontend:
 localhost:3000
 
+At the moment data entry is only possible through backend localhost:8000/api/item. 
