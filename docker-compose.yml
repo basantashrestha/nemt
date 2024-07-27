@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  nemt_backend:
+    build: 
+      context: nemt_backend
+    command: python3 manage.py runserver 0.0.0.0:8000 
+    volumes:
+      - .db_data/db.sqlite3:/db.sqlite3
+    ports:
+      - "8000:8000"
+    restart: always 
+    networks:
+      - nemt
+  nemt_frontend:
+    build:
+      context: reactfrontend
+    ports:
+      - "3000:3000"
+    networks:
+      - nemt
+    command: npm start
+    restart: always
+
+networks:
+  nemt:
