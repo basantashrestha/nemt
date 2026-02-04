@@ -5,7 +5,7 @@ services:
       context: nemt_backend
     command: python3 manage.py runserver 0.0.0.0:8000 
     volumes:
-      - .db_data/db.sqlite3:/db.sqlite3
+      - ./db_data/db.sqlite3:/db.sqlite3
     ports:
       - "8000:8000"
     restart: always 
