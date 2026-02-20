@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    build:
+      context: nemt_db
+    image: nemt_db:ver1
+
+  nemt_backend:
+    build: 
+      context: nemt_backend
+    image: nemt_backend:ver1
+
+  nemt_frontend:
+    build:
+      context: reactfrontend
+    image: nemt_frontend:ver1
