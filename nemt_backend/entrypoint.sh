@@ -6,5 +6,10 @@
     echo "Step 3: Running all migrations again..."
     python manage.py migrate --no-input
 
+# 2. Create superuser
+# We use || true to prevent the script from failing if the user already exists
+echo "Creating superuser..."
+python manage.py createsuperuser --noinput || echo "Superuser already exists or creation failed."
+
 exec "$@"
 
