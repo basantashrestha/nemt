@@ -23,13 +23,12 @@ services:
     networks:
       - nemt
 
-  nemt_frontend:
-    image: nemt_frontend:ver1
+  nemt_frontend_nginx:
+    image: nemt_frontend_nginx:ver1
     ports:
-      - "3000:3000"
+      - "80:80"
     networks:
       - nemt
-    command: npm start
     restart: always
 
 volumes:

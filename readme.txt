@@ -1,6 +1,10 @@
-after runing docker-compose up -d
-go into django container and run
-python manage.py migrate
+Build 
+docker compose -f build.yml build
+
+
+
+To run: 
+docker-compose up -d
 then browse localhost:8000/api/item
 
 to add data:
@@ -9,11 +13,17 @@ provide wordtrans
 provide category
 Post
 
-
-to check frontend:
-localhost:3000
+Check at following add. Multistage build builds frontend and hosts it on nginx
+http://localhost
 
 At the moment data entry is only possible through backend localhost:8000/api/item. 
+
+##Database backup script that can be set to cron
+docker exec -t nemt-db-1 pg_dump -U myuser mydatabase > ~/pg_backups/db_$(date +\%F).sql
+
+##Restore
+cat ~/pg_backups/db_2026-02-20.sql | docker exec -i nemt-db-1 psql -U myuser -d mydatabase
+
 
 ### Database restore ( clean way ) 
 First drop the database and restore from backup 

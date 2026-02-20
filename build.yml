@@ -10,7 +10,7 @@ services:
       context: nemt_backend
     image: nemt_backend:ver1
 
-  nemt_frontend:
+  nemt_frontend_nginx:
     build:
       context: reactfrontend
-    image: nemt_frontend:ver1
+    image: nemt_frontend_nginx:ver1
